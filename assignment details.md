@@ -1,6 +1,3 @@
-# automatic_eda
-A web app that automatically runs basic exploratory data analysis for CSVs.
-
 Submission:
 You will submit a zip file containing your web application and a final report. You can find the structure template here: link (Links to an external site.)
 
