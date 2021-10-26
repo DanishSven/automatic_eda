@@ -1,4 +1,4 @@
-# Project
+# Project: automatic_eda
 Collaborative Development of Data Explorer Web App
 
 # Description
@@ -37,6 +37,7 @@ Stefan Hall
 Python 3.8.2
 
 # Instructions
-
+pip install -r requirements.txt
+streamlit run streamlit_app.py
 
 
