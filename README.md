@@ -9,9 +9,9 @@ The web application will be composed of following 4 different sections:
 4.	Information on each datetime column
 
 # Authors
-Matthew Moghaddam
-Michelle Xiong
-Shannon Murdoch
+Matthew Moghaddam,
+Michelle Xiong,
+Shannon Murdoch,
 Stefan Hall
 
 # Structure
@@ -24,7 +24,7 @@ Stefan Hall
     ├── test_data.py       <- python script for testing code from data.py
     ├── test_datetime.py   <- python script for testing code from datetime.py
     ├── test_numeric.py    <- python script for testing code from numeric.py
-    ├── test_text.py        <- python script for testing code from text.py
+    ├── test_text.py       <- python script for testing code from text.py
     ├── README.md          <- contains the information for the user about the project and code
     ├── requirements.txt   <- contains the information
     ├── Dockerfile         <- contains the information
