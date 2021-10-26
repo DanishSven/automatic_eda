@@ -1,13 +1,23 @@
 # To be filled by students
 import streamlit as st
 from dataclasses import dataclass
+from data import get_date_columns
 import pandas as pd
 
+
+  # def get_date_columns(self):
+  #   """
+  #     Return list column names of datetime type from loaded dataset
+  #   """
+  #   dates = []
+  #   date_col = [i for i in df.columns if i.dtype == datetime64]
+  #   dates = dates.append(date_col)
+  #   return dates
 
 @dataclass
 class DateColumn:
   col_name: str
-  serie: pd.Series
+  series: pd.Series
 
   def get_name(self):
     """
