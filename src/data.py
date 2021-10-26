@@ -2,7 +2,7 @@
 import streamlit as st
 from dataclasses import dataclass
 import pandas as pd
-
+import numpy as np
 
 @dataclass
 class Dataset:
@@ -73,17 +73,19 @@ class Dataset:
     """
       Return list column names of numeric type from loaded dataset
     """
-    return None
+    numerics = [i for i in df.columns if (df.dtypes[i] == np.float_ | df.dtypes[i] == np.int_)]
+    return numerics
 
   def get_text_columns(self):
     """
       Return list column names of text type from loaded dataset
     """
-    return None
+    texts = [i for i in df.columns if df.dtypes[i] == np.str_]
+    return texts
 
   def get_date_columns(self):
     """
       Return list column names of datetime type from loaded dataset
     """
-    
-    return None
+    dates = [i for i in df.columns if df.dtypes[i] == np.datetime64]
+    return dates
