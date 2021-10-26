@@ -1,3 +1,6 @@
+# Project
+Collaborative Development of Data Explorer Web App
+
 # Description
 This is an interactive web application using Streamlit that that will read a provided CSV file by the user and perform basic exploratory data analysis on it.
 This app will parse strings, datetime and numeric types of data and quickly provide visualisations for a brief overview of the dataset.
