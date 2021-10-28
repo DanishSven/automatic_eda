@@ -33,14 +33,16 @@ Stefan Hall
     ├── requirements.txt   <- contains the information
     ├── Dockerfile         <- contains the information
     └── docker-compose.yml <- contains the information
+>>>>>>> datetime
 
 # Built With
+Docker
 Python 3.8.2
+Streamlit 1.0.0
+Numpy 1.21.3
+Pandas 1.3.3
 
-# Instructions
-pip install -r requirements.txt
-streamlit run streamlit_app.py
-=======
+
 # Instructions
 To load this app, you will first need to initialise a docker image with the following command:
 
@@ -60,4 +62,4 @@ eg:
 
 Lastly open a browser and navigate to http://localhost:8501 
 From there you will be able to explore your data quickly and easily.
->>>>>>> datetime
+
