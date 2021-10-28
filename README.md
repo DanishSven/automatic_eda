@@ -19,6 +19,7 @@ Stefan Hall
 
 # Structure
 
+<<<<<<< HEAD
     ├── streamlit_app.py   <- main application used for executing Streamlit
     ├── data.py            <- python script that will contain the code for overall information of the CSV file 
     ├── datetime.py        <- python script that will contain the code for information on each datetime column 
@@ -39,3 +40,24 @@ Python 3.8.2
 # Instructions
 pip install -r requirements.txt
 streamlit run streamlit_app.py
+=======
+# Instructions
+To load this app, you will first need to initialise a docker image with the following command:
+
+docker build -t [yourimagename]:latest .
+
+eg:
+    docker build -t automaticeda:latest .
+
+This will build an image according to the specifications in the Dockerfile
+
+Next we need to build a container from which to run the streamlit app. Use the following command:
+
+docker run -dit --rm --name [yourcontainername] -p 8501:8501 -v "${PWD}":/app [yourimagename]:latest
+
+eg:
+    docker run -dit --rm --name containapp -p 8501:8501 -v "${PWD}":/app streamlitapp:latest
+
+Lastly open a browser and navigate to http://localhost:8501 
+From there you will be able to explore your data quickly and easily.
+>>>>>>> datetime
