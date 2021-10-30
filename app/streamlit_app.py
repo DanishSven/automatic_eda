@@ -22,23 +22,58 @@ st.write("Simply upload a csv and watch the data unfold..")
 try:
     uploaded = st.file_uploader("Upload your .csv here:", ['csv'])
     df = pd.read_csv(uploaded)
+    df = pd.DataFrame(df)
 except:
     st.error("Please upload a csv to begin")
     st.stop()
 
-upload = Dataset("upload",df)
+# upload = Dataset("upload",df)
 
 # Datetime
 
 # This is wrong - while I can change the nominated columns to datetime, this needs to be in the data module.
 # So still need to figure that out...
 date_cols = st.multiselect("Which columns in the .csv are date/time format?", df.columns, None)
-st.write(upload)
+#st.write(type(df))
+st.dataframe(df)
 st.write("Preview:", df[df.columns.intersection(date_cols)])
-dates = df[df.columns.intersection(date_cols)]
-dates = dates.apply(pd.to_datetime)
-st.write(dates)
-upload.get_date_columns(date_cols)
+
+# dates = df[df.columns.intersection(date_cols)] # TODO Comment the 3 lines as they are already in upload.get_date_columns()
+# dates = dates.apply(pd.to_datetime)
+# st.write(dates)
+
+
+# Init Class Dataset with 2 input:
+upload = Dataset("upload", df, date_cols)
+dates = upload.get_date_columns()
+st.write("Date-time column changed to Date-time data type:", dates)
+
+
+# Text Part - Overview TODO added text part
+st.header('Information on text columns')
+# provide an overview on the text columns
+texts = upload.get_text_columns()
+st.write("Text columns are:", texts.head())
+
+# Text Part - for each column
+part3_no = 0
+for col in texts.columns:
+    part3_no = part3_no + 1
+    Text_stats = TextColumn(col, df)
+    text_col_stats_table = Text_stats.construct_table()
+    # Display name of column as subtitle
+    st.subheader(str(3) + "." + str(part3_no) + " Field Name: " + Text_stats.col_name)
+    # Add text_col_stats_table
+    st.write(text_col_stats_table)
+    # bar chart showing the number of occurrence for each value
+    st.subheader("Barchart")
+    chart_data = Text_stats.get_barchart()
+    st.bar_chart(chart_data)
+    # frequencies and percentage for each value
+    st.subheader("Most Frequent Values")
+    frequency = Text_stats.get_frequent()
+    st.write(frequency)
+
 
 
 
