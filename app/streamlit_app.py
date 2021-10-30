@@ -1,26 +1,14 @@
-
-<<<<<<< HEAD
-
-# from src.data import Dataset
-=======
+import sys, os
 import streamlit as st
-import pandas as pd
-import sys
-import os 
 
-relative_path = 'src'
-sys.path.insert(1, relative_path)
-
-lol = sys.path
-print(lol)
+if os.path.abspath(".") not in sys.path:
+    sys.path.append(os.path.abspath("."))
 
 from src.data import Dataset
->>>>>>> datetime
-# from src.datetime_part import DateColumn
-# from src.numeric import NumericColumn
-# from src.text import TextColum
+from src.datetime_part import DateColumn
+from src.numeric import NumericColumn
+from src.text import TextColum
 
-sys.path.remove(relative_path) 
 st.title("Automatic Exploratory Data Analysis")
 st.write("Simply upload a csv and watch the data unfold..")
 
