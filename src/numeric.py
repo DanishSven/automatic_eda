@@ -30,6 +30,8 @@ class NumericColumn:
   def get_missing(self):
     """
     Return number of missing values for selected column
+
+    SM TEST LINE 3
     """
     return None
 
