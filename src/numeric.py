@@ -31,7 +31,7 @@ class NumericColumn:
     """
     Return number of missing values for selected column
 
-    SM TEST LINE 3
+    SM TEST LINE 3 test agaon
     """
     return None
 
