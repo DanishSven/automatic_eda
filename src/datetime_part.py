@@ -11,9 +11,9 @@ class DateColumn:
     """
     Return name of selected column
     """
-    #st.write()
-    print('hi')
-    return None
+    st.write('hi')
+    
+    # return None
 
   def get_unique(self):
     """
