@@ -22,6 +22,8 @@ class NumericColumn:
   def get_unique(self):
     """
     Return number of unique values for selected column
+
+    SM TEST LINE 2
     """
     return None
 
