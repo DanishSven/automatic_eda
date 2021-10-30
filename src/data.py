@@ -75,7 +75,7 @@ class Dataset:
     """
     # numerics = [i for i in self.columns if (self.dtypes[i] == np.float_ | self.dtypes[i] == np.int_)]
     # return numerics
-    return none
+    return None
 
   def get_text_columns(self):
     """
@@ -83,11 +83,13 @@ class Dataset:
     """
     # texts = [i for i in self.columns if self.dtypes[i] == np.str_]
     # return texts
-    return none
+    return None
 
   def get_date_columns(self):
     """
       Return list column names of datetime type from loaded dataset
     """
-    dates = [i for i in self.columns if self.dtypes[i] == np.datetime64]
+    # dates = [i for i in self.columns if self.dtypes[i] == np.datetime64]
+    dates = df[df.columns.intersection(self)]
+    dates = dates.apply(pd.to_datetime)
     return dates
