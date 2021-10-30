@@ -1,7 +1,6 @@
 # To be filled by students
 import streamlit as st
 from dataclasses import dataclass
-from data import get_text_columns
 import pandas as pd
 
 

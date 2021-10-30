@@ -28,8 +28,8 @@ Stefan Hall
     ├── test_numeric.py    <- python script for testing code from numeric.py
     ├── test_text.py       <- python script for testing code from text.py
     ├── README.md          <- contains the information for the user about the project and code
-    ├── requirements.txt   <- contains the information
-    ├── Dockerfile         <- contains the information
+    ├── requirements.txt   <- contains the python package requirements for the docker image to load
+    ├── Dockerfile         <- contains the information to load a docker image
     └── docker-compose.yml <- contains the information
 
 

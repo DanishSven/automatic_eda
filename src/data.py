@@ -1,8 +1,8 @@
-# To be filled by students
-import streamlit as st
+
 from dataclasses import dataclass
 import pandas as pd
 import numpy as np
+
 
 @dataclass
 class Dataset:
@@ -73,19 +73,21 @@ class Dataset:
     """
       Return list column names of numeric type from loaded dataset
     """
-    numerics = [i for i in df.columns if (df.dtypes[i] == np.float_ | df.dtypes[i] == np.int_)]
-    return numerics
+    # numerics = [i for i in self.columns if (self.dtypes[i] == np.float_ | self.dtypes[i] == np.int_)]
+    # return numerics
+    return none
 
   def get_text_columns(self):
     """
       Return list column names of text type from loaded dataset
     """
-    texts = [i for i in df.columns if df.dtypes[i] == np.str_]
-    return texts
+    # texts = [i for i in self.columns if self.dtypes[i] == np.str_]
+    # return texts
+    return none
 
   def get_date_columns(self):
     """
       Return list column names of datetime type from loaded dataset
     """
-    dates = [i for i in df.columns if df.dtypes[i] == np.datetime64]
+    dates = [i for i in self.columns if self.dtypes[i] == np.datetime64]
     return dates
