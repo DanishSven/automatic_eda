@@ -18,8 +18,6 @@ Shannon Murdoch,
 Stefan Hall
 
 # Structure
-
-<<<<<<< HEAD
     ├── streamlit_app.py   <- main application used for executing Streamlit
     ├── data.py            <- python script that will contain the code for overall information of the CSV file 
     ├── datetime.py        <- python script that will contain the code for information on each datetime column 
@@ -33,7 +31,7 @@ Stefan Hall
     ├── requirements.txt   <- contains the information
     ├── Dockerfile         <- contains the information
     └── docker-compose.yml <- contains the information
->>>>>>> datetime
+
 
 # Built With
 Docker
