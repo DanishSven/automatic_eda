@@ -58,7 +58,7 @@ Next we need to build a container from which to run the streamlit app. Use the f
 docker run -dit --rm --name [yourcontainername] -p 8501:8501 -v "${PWD}":/app [yourimagename]:latest
 
 eg:
-    docker run -dit --rm --name containapp -p 8501:8501 -v "${PWD}":/app streamlitapp:latest
+    docker run -dit --rm --name containapp -p 8501:8501 -v "${PWD}":/app automaticeda:latest
 
 Lastly open a browser and navigate to http://localhost:8501 
 From there you will be able to explore your data quickly and easily.
