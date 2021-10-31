@@ -1,0 +1,14 @@
+version: '2'
+  services:
+    jupyter:
+      build:
+        context: .
+        dockerfile: ./Dockerfile
+      container_name: jupyter_docker_Data_Explorer
+      ports:
+        - "8888:8888"
+      environment:
+          - GRANT_SUDO=yes
+          - JUPYTER_ENABLE_LAB=yes
+      volumes:
+          - ./:/home/jovyan/work
