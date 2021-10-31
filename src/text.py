@@ -128,3 +128,6 @@ class TextColumn:
         table = pd.DataFrame.from_dict(table).T
         table.columns = ['value']
         return table.astype(str)
+
+# Test to push branch
+x=5
