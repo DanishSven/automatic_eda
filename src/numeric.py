@@ -31,7 +31,9 @@ class NumericColumn:
     """
     Return number of missing values for selected column
 
+<<<<<<< HEAD
     SM TEST LINE 3
+>>>>>>> 5f18bc976551d8aa425551ee89cbe94c07e0a98e
     """
     return None
 
