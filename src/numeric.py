@@ -13,24 +13,18 @@ class NumericColumn:
   def get_name(self):
     """
     Return name of selected column
-    
-    SM TEST LINE
-
     """
     return None
 
   def get_unique(self):
     """
     Return number of unique values for selected column
-
-    SM TEST LINE 2
     """
     return None
 
   def get_missing(self):
     """
     Return number of missing values for selected column
-    
     """
     return None
 
