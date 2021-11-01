@@ -73,3 +73,4 @@ for col in texts.columns:
     st.subheader("Most Frequent Values")
     frequency = Text_stats.get_frequent()
     st.write(frequency)
+#
