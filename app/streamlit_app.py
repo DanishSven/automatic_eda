@@ -30,8 +30,9 @@ except:
 # Get Datetime columns
 date_cols = st.multiselect("Which columns in the .csv are date/time format?", df.columns, None)
 dates = df[df.columns.intersection(date_cols)] 
-datetime_cols = Dataset("datetime columns",dates)
-datetime_cols.get_date_columns()
+st.write(dates)
+# datetime_cols = Dataset("datetime columns",dates)
+# datetime_cols.get_date_columns()
 
 #
 # Init Class Dataset with 2 input:
