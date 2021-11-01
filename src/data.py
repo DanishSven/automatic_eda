@@ -1,7 +1,6 @@
 # To be filled by students
 import streamlit as st
 from dataclasses import dataclass
-from app.streamlit_app import date_cols 
 import pandas as pd
 
 
@@ -90,16 +89,15 @@ class Dataset:
     return texts
 
   def get_date_columns(self):
-      """
+    """
       Return list column names of datetime type from loaded dataset
-      """
-      dates = self.apply(pd.to_datetime)
-      return dates
+    """
+    dateformat = pd.to_datetime(self)
+    return dateformat
 
 
 
-
-# dates = self.df[self.df.columns.intersection(date_cols)]  # TODO modified, change df -> self.df, added self.datetime_col
+# 
 
 # def fnc_get_row_num(df):
 #     return  df.shape[0]   # shape[0] is number of rows of dataframe

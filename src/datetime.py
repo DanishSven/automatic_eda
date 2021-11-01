@@ -21,7 +21,7 @@ class DateColumn:
     """
     unique_dates = len(self.df[self.col_name].unique())
 
-    return None
+    return unique_dates
 
   def get_missing(self):
     """
