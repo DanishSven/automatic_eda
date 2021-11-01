@@ -11,21 +11,24 @@ class DateColumn:
     """
     Return name of selected column
     """
-    st.write('hi HI')
+    name = self.name
     
-    # return None
+    return name
 
   def get_unique(self):
     """
     Return number of unique values for selected column
     """
+    unique_dates = len(self.df[self.col_name].unique())
+
     return None
 
   def get_missing(self):
     """
     Return number of missing values for selected column
     """
-    return None
+    missing_dates = self.df[self.col_name].isnull().sum()
+    return missing_dates
 
   def get_weekend(self):
     """
