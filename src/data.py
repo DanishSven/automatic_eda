@@ -71,7 +71,7 @@ class Dataset:
     return None
 
   def get_numeric_columns(self):
-      """
+    """
       Return list column names of numeric type from loaded dataset
     """
       # numerics = [i for i in self.columns if (self.dtypes[i] == np.float_ | self.dtypes[i] == np.int_)]
