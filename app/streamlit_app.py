@@ -10,7 +10,7 @@ if os.path.abspath(".") not in sys.path:
 
 # Import custom module
 from src.data import Dataset
-from src.datetime_part import DateColumn
+from src.datetime import DateColumn
 from src.numeric import NumericColumn
 from src.text import TextColumn
 
