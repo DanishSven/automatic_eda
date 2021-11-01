@@ -10,7 +10,7 @@ if os.path.abspath(".") not in sys.path:
 
 # Import custom module
 from src.data import Dataset
-from src.datetime_part import DateColumn
+from src.datetime import DateColumn
 from src.numeric import NumericColumn
 from src.text import TextColumn
 
@@ -27,26 +27,17 @@ except:
     st.error("Please upload a csv to begin")
     st.stop()
 
-# upload = Dataset("upload",df)
-
-# Datetime
-
-# This is wrong - while I can change the nominated columns to datetime, this needs to be in the data module.
-# So still need to figure that out...
+# Get Datetime columns
 date_cols = st.multiselect("Which columns in the .csv are date/time format?", df.columns, None)
-#st.write(type(df))
-st.dataframe(df)
-st.write("Preview:", df[df.columns.intersection(date_cols)])
+dates = df[df.columns.intersection(date_cols)] 
+datetime_cols = Dataset("datetime columns",dates)
+datetime_cols.get_date_columns()
 
-# dates = df[df.columns.intersection(date_cols)] # TODO Comment the 3 lines as they are already in upload.get_date_columns()
-# dates = dates.apply(pd.to_datetime)
-# st.write(dates)
-
-
+#
 # Init Class Dataset with 2 input:
-upload = Dataset("upload", df, date_cols)
-dates = upload.get_date_columns()
-st.write("Date-time column changed to Date-time data type:", dates)
+upload = Dataset("upload", df)
+# dates = upload.get_date_columns()
+# st.write("Date-time column changed to Date-time data type:", dates)
 
 
 # Text Part - Overview TODO added text part
