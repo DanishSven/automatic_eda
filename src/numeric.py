@@ -8,8 +8,9 @@ import pandas as pd
 @dataclass
 class NumericColumn:
   col_name: str
-  series: pd.Series
- 
+  # series: pd.Series
+  df: pd.DataFrame
+
   def get_name(self):
     """
     Return name of selected column
@@ -96,28 +97,28 @@ class NumericColumn:
     frequency['percentage'] = frequency['occurrence']/total_rows
     return frequency.head(20)
 
-def construct_table(self):
-    unique_values = self.get_unique()
-    missing_values = self.get_missing()
-    zero_values = self.get_zeros()
-    negative_values = self.get_negatives()
-    average = self.get_mean()
-    std_value= self.get_std()
-    min_value = self.get_min()
-    max_value = self.get_max()
-    med_value = self.get_median()
+# def construct_table(self):
+#     unique_values = self.get_unique()
+#     missing_values = self.get_missing()
+#     zero_values = self.get_zeros()
+#     negative_values = self.get_negatives()
+#     average = self.get_mean()
+#     std_value= self.get_std()
+#     min_value = self.get_min()
+#     max_value = self.get_max()
+#     med_value = self.get_median()
 
-    table = {
-        'number of unique values': [unique_values],
-        'number of missing values': [missing_values],
-        'number of rows with zero values': [zero_values],
-        'number of rows with negative values': [negative_values],
-        'Average': [average],
-        'Standard Deviation': [std_value],
-        'Minimum': [min_value],
-        'Maximum': [max_value],
-        'Median': [med_value]
-        }
-    table = pd.DataFrame.from_dict(table).T
-    table.columns = ['value']
-    return table.astype(str)        
+#     table = {
+#         'number of unique values': [unique_values],
+#         'number of missing values': [missing_values],
+#         'number of rows with zero values': [zero_values],
+#         'number of rows with negative values': [negative_values],
+#         'Average': [average],
+#         'Standard Deviation': [std_value],
+#         'Minimum': [min_value],
+#         'Maximum': [max_value],
+#         'Median': [med_value]
+#         }
+#     table = pd.DataFrame.from_dict(table).T
+#     table.columns = ['value']
+#     return table.astype(str)        
