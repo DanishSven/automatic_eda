@@ -70,7 +70,7 @@ for col in texts.columns:
 st.header('Information on numeric columns')
 # provide an overview on the numeric columns
 numeric = upload.get_numeric_columns()
-# st.write("Numeric columns are:", numeric.head())
+st.write("Numeric columns are:", numeric.head())
 
 # Numeric columns
 part4_no = 0
