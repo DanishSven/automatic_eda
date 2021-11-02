@@ -129,5 +129,3 @@ class TextColumn:
         table.columns = ['value']
         return table.astype(str)
 
-# Test to push branch
-x=5

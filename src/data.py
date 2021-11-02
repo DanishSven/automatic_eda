@@ -8,6 +8,7 @@ import pandas as pd
 class Dataset:
   name: str
   df: pd.DataFrame
+  datetime_col: list
   
   def get_name(self):
     """
@@ -92,8 +93,11 @@ class Dataset:
     """
       Return list column names of datetime type from loaded dataset
     """
-    dateformat = pd.to_datetime(self)
-    return dateformat
+    dates = self.df[
+      self.df.columns.intersection(
+        self.datetime_col)]  # TODO modified, change df -> self.df, added self.datetime_col
+    dates = dates.apply(pd.to_datetime)
+    return dates
 
 
 

@@ -36,10 +36,9 @@ st.write(dates)
 
 #
 # Init Class Dataset with 2 input:
-upload = Dataset("upload", df)
-# dates = upload.get_date_columns()
-# st.write("Date-time column changed to Date-time data type:", dates)
-
+upload = Dataset("upload", df, date_cols)
+dates = upload.get_date_columns()
+st.write("Date-time column changed to Date-time data type:", dates)
 
 # Text Part - Overview TODO added text part
 st.header('Information on text columns')
@@ -65,4 +64,3 @@ for col in texts.columns:
     st.subheader("Most Frequent Values")
     frequency = Text_stats.get_frequent()
     st.write(frequency)
-#
