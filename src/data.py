@@ -80,12 +80,16 @@ class Dataset:
 ########
 
     def get_numeric_columns(self):
-        """
+      """
         Return list column names of numeric type from loaded dataset
       """
-        # numerics = [i for i in self.columns if (self.dtypes[i] == np.float_ | self.dtypes[i] == np.int_)]
-        # return numerics
-        return None
+      df_types = pd.DataFrame(self.df.dtypes, columns=['Data Type'])
+      # df_types = df_types.astype(str)
+      num_cols = df_types[df_types['Data Type'].isin(['int64' ,'float64'])].index.values
+      numeric = self.df[num_cols]
+      # numeric = texts.drop(columns=self.datetime_col)
+      return numeric
+
 
     def get_text_columns(self): # TODO modified, add part to filter to text columns
       """
@@ -105,6 +109,6 @@ class Dataset:
         # dates = [i for i in self.columns if self.dtypes[i] == np.datetime64]
         dates = self.df[
             self.df.columns.intersection(
-                self.datetime_col)]  
+                self.datetime_col)]  # TODO modified, change df -> self.df, added self.datetime_col
         dates = dates.apply(pd.to_datetime)
         return dates
