@@ -85,6 +85,9 @@ class Dataset:
       """
         # numerics = [i for i in self.columns if (self.dtypes[i] == np.float_ | self.dtypes[i] == np.int_)]
         # return numerics
+
+        # test
+        
         return None
 
     def get_text_columns(self): # TODO modified, add part to filter to text columns
