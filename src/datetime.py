@@ -7,13 +7,13 @@ class DateColumn:
   col_name: str
   series: pd.Series
 
-  def get_name(self):
-    """
-    Return name of selected column
-    """
-    name = self.name
+  # def get_name(self):
+  #   """
+  #   Return name of selected column
+  #   """
+  #   name = self.name
     
-    return name
+  #   return name
 
   def get_unique(self):
     """

@@ -36,7 +36,7 @@ dates = df[df.columns.intersection(date_cols)]
 # try inserting a try/except for pd.Datetime on the columns they select
 st.write(dates)
 
-# Init Class Dataset with 2 input:
+# Init Class Dataset with 3 input:
 upload = Dataset("upload", df, date_cols)
 dates = upload.get_date_columns()
 #st.write("Date-time column changed to Date-time data type:", dates)
@@ -107,8 +107,10 @@ for col in texts.columns:
 ######################################################
 # DateTime Section
 ######################################################
-# Datetime Columns
-
-datetime = DateColumn(dates)
-
-#some random change lol
+st.header('Information on datetime columns')
+part4_no = 0
+dates_cols = dates.columns
+for col in dates_cols:
+    part4_no = part4_no + 1
+    datetime = DateColumn(col,dates[col])
+    st.subheader(str(4) + "." + str(part4_no) + " Field Name: " + col)
