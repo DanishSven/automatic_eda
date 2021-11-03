@@ -105,6 +105,6 @@ class Dataset:
         # dates = [i for i in self.columns if self.dtypes[i] == np.datetime64]
         dates = self.df[
             self.df.columns.intersection(
-                self.datetime_col)]  # TODO modified, change df -> self.df, added self.datetime_col
+                self.datetime_col)]  
         dates = dates.apply(pd.to_datetime)
         return dates
