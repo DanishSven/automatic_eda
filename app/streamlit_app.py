@@ -29,23 +29,64 @@ try:
 except:
     st.error("Please upload a csv to begin")
     st.stop()
+st.write(df)
 
 # Get Datetime columns - Needs to be split out first for other sections
 date_cols = st.multiselect("Which columns in the .csv are date/time format?", df.columns, None)
-dates = df[df.columns.intersection(date_cols)] 
+dates = df[df.columns.intersection(date_cols)]
 # try inserting a try/except for pd.Datetime on the columns they select
 st.write(dates)
 
 # Init Class Dataset with 3 input:
-upload = Dataset("upload", df, date_cols)
+name = uploaded.name
+upload = Dataset(name, df, date_cols)
 dates = upload.get_date_columns()
 #st.write("Date-time column changed to Date-time data type:", dates)
 
 ######################################################
 # Overall Section
 ######################################################
-
-
+st.header('1. Overall Information')
+# Display Name of Table
+st.subheader(f'Name of Table: {upload.get_name()}')
+# Display Number of Rows value
+st.subheader(f'Number of Rows: {upload.get_n_rows()}')
+# Display Number of Columns value
+st.subheader(f'Number of Columns: {upload.get_n_cols()}')
+# Display Number of Duplicated Rows values
+st.subheader(f'Number of Duplicated Rows: {upload.get_n_duplicates()}')
+# Display Number of Rows with Missing Values
+st.subheader(f'Number of Rows with Missing Values: {upload.get_n_missing()}')
+# get all column of file
+columns = upload.get_cols_list()
+# Format list of columns in to string with delimiter
+columns_text = ', '.join(map(str, columns))
+# Display List of Columns
+st.subheader('List of Columns:')
+st.write(columns_text)
+# Display Type of Columns table
+st.subheader('Type of Columns:')
+# Convert dictionary to dataframe then display
+st.write(pd.DataFrame.from_dict(upload.get_cols_dtype(), orient='index'))
+row_num_filter = st.slider('Select number of rows to display', 5, 50,key='filter_num')
+# Display sort order option. Default is display top rows of table
+display_option = ['Top Rows of Table', 'Bottom Rows of Table', 'Random Sample Rows of Table']
+selected_option = st.selectbox('What is the sort order for displaying',(display_option),key='display_options')
+if selected_option == 'Top Rows of Table':
+    # Display 'Top Rows of Table:'
+    st.subheader('Top Rows of Table:')
+    # Format date columns and write
+    st.write(upload.get_head(row_num_filter))
+if selected_option == 'Bottom Rows of Table':
+    # Display 'Bottom Rows of Table:'
+    st.subheader('Bottom Rows of Table:')
+    # Format date columns and write
+    st.write(upload.get_tail(row_num_filter))
+if selected_option == 'Random Sample Rows of Table':
+    # Display 'Random Sample Rows of Table:'
+    st.subheader('Random Sample Rows of Table:')
+    # Format date columns and write
+    st.write(upload.get_sample(row_num_filter))
 ######################################################
 # Numeric Section
 ######################################################
