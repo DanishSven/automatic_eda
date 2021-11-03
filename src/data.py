@@ -77,7 +77,6 @@ class Dataset:
         Return Pandas Dataframe with random sampled rows of loaded dataset
       """
         return self.df.sample(n)
-########
 
     def get_numeric_columns(self):
         """
