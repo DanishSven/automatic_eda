@@ -8,7 +8,7 @@ import pandas as pd
 @dataclass
 class NumericColumn:
   col_name: str
-  # series: pd.Series
+  series: pd.Series
   df: pd.DataFrame
 
   def get_name(self):
