@@ -56,13 +56,13 @@ numeric = upload.get_numeric_columns()
 st.write("Numeric columns are:", numeric.head())
 
 # Numeric columns
-part4_no = 0
+part2_no = 0
 for col in numeric.columns:
-    part4_no = part4_no + 1
+    part2_no = part2_no + 1
     numeric_stats = NumericColumn(col, df)
     numeric_col_stats_table = numeric_stats.construct_table()
     # Display name of column as subtitle
-    st.subheader(str(4) + "." + str(part4_no) + " Field Name: " + numeric_stats.col_name)
+    st.subheader(str(2) + "." + str(part2_no) + " Field Name: " + numeric_stats.col_name)
     # Add numeric_col_stats_table
     st.write(numeric_col_stats_table)
     # bar chart showing the number of occurrence for each value
