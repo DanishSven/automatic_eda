@@ -83,8 +83,13 @@ class NumericColumn:
     """
     Return the generated histogram for selected column
     """
-    fig, ax = plt.subplots()
-    ax.hist(self.df[self.col_name], bins=20)
+    n_rows = self.df.shape[0]
+    if n_rows > 250:
+      fig, ax = plt.subplots()
+      ax.hist(self.df[self.col_name], bins=50)
+    else: 
+      fig, ax = plt.subplots()
+      ax.hist(self.df[self.col_name], bins=int(round(n_rows/5,0)))
     return fig
 
 
