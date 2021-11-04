@@ -33,9 +33,9 @@ class TextColumn:
 
     def get_empty(self):
         """
-        Return number of rows with empty string for selected column #TODO isn't it the same as missing values?
+        Return number of rows with empty string for selected column #
         """
-        no_empty = 0
+        no_empty = sum(map(lambda x: str(x) == '', self.df[self.col_name]))
 
         return no_empty
 
