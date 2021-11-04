@@ -110,7 +110,8 @@ for col in numeric.columns:
     # histogram showing the number of occurrence for each value
     st.subheader("Histogram")
     num_hist = numeric_stats.get_histogram()
-    st.altair_chart(num_hist, use_container_width=True)
+    # st.altair_chart(num_hist, use_container_width=True)
+    st.pyplot(num_hist)
     # frequencies and percentage for each value
     st.subheader("Most Frequent Values")
     frequency = numeric_stats.get_frequent()
