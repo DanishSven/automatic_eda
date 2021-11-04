@@ -36,7 +36,7 @@ date_cols = st.multiselect("Which columns in the .csv are date/time format?", df
 
 name = uploaded.name
 # Init Class Dataset with 3 input:
-upload = Dataset("upload", df, date_cols)
+upload = Dataset(name, df, date_cols)
 try:
     dates = upload.get_date_columns()
 except:
