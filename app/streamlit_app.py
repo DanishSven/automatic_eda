@@ -69,8 +69,8 @@ st.write(columns_text)
 st.subheader('Type of Columns:')
 # Convert dictionary to dataframe then display
 st.write(pd.DataFrame.from_dict(upload.get_cols_dtype(), orient='index'))
-if upload.get_n_cols() > 5:
-    row_num_filter = st.slider('Select number of rows to display', 5, upload.get_n_cols(),key='filter_num')
+if upload.get_n_rows() > 5:
+    row_num_filter = st.slider('Select number of rows to display', 5, upload.get_n_rows(),key='filter_num')
 else:
     row_num_filter = st.slider('Select number of rows to display', 1, 5,key='filter_num') 
 # Display sort order option. Default is display top rows of table
