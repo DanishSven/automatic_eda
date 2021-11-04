@@ -1,5 +1,4 @@
 # To be filled by students
-import streamlit as st
 import matplotlib.pyplot as plt
 from dataclasses import dataclass
 import pandas as pd
@@ -84,30 +83,6 @@ class NumericColumn:
     """
     Return the generated histogram for selected column
     """
-    # num_hist = self.df.hist(column=[self.col_name])
-    # return num_hist
-
-    # alt.Chart(self.df[self.col_name]).mark_bar().encode(
-    # alt.X([self.col_name], bin=True),
-    # y='count()')
-   
-    # fig, ax = plt.subplots()
-    # num_hist = ax.hist(self.df[self.col_name])
-    # return num_hist
-
-    # num_hist = alt.Chart(self.df).mark_bar().encode(
-    #           alt.X('self.df[self.col_name]:Q'),
-    #           alt.Y('count()')
-    #           )
-    # return num_hist
-
-    # num_hist = self.df[self.col_name].plot.hist
-    
-
-    # fig, ax = plt.subplots()
-    # num_hist = ax.hist(self.df[self.col_name])
-    # return num_hist
-
     fig, ax = plt.subplots()
     ax.hist(self.df[self.col_name], bins=20)
     return fig

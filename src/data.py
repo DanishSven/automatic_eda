@@ -86,7 +86,6 @@ class Dataset:
       df_types = df_types.astype(str)
       num_cols = df_types[df_types['Data Type'].isin(['int64' ,'float64'])].index.values
       numeric = self.df[num_cols]
-      # numeric = numeric.drop(columns=self.datetime_col)
       return numeric
 
 
