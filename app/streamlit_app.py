@@ -107,10 +107,10 @@ for col in numeric.columns:
     st.subheader(str(2) + "." + str(part2_no) + " Field Name: " + numeric_stats.col_name)
     # Add numeric_col_stats_table
     st.write(numeric_col_stats_table)
-    # bar chart showing the number of occurrence for each value
+    # histogram showing the number of occurrence for each value
     st.subheader("Histogram")
-    hist = numeric_stats.get_histogram
-    st.hist_chart(hist)
+    num_hist = numeric_stats.get_histogram()
+    st.altair_chart(num_hist, use_container_width=True)
     # frequencies and percentage for each value
     st.subheader("Most Frequent Values")
     frequency = numeric_stats.get_frequent()
