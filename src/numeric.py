@@ -1,6 +1,5 @@
 # To be filled by students
 import streamlit as st
-# import altair as alt
 import matplotlib.pyplot as plt
 from dataclasses import dataclass
 import pandas as pd
