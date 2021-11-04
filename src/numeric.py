@@ -36,7 +36,7 @@ class NumericColumn:
     """
     Return number of occurrence of 0 value for selected column
     """
-    zero_values = self.df.isin([0]).sum(axis=0)
+    zero_values = self.df[self.col_name].isin([0]).sum(axis=0)
     return zero_values
 
   def get_negatives(self):
