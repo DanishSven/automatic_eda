@@ -97,8 +97,10 @@ class DateColumn:
     """
     Return the Pandas dataframe containing the occurrences and percentage of the top 20 most frequent values
     """
+    total_rows = self.series.count()
     frequency = self.series.value_counts().reset_index()
     frequency.columns = ['value', 'occurrence']
+    frequency['percentage'] = frequency['occurrence']/total_rows
     return frequency.head(20)
 
   def construct_table(self):
