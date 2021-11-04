@@ -107,6 +107,30 @@ for col in numeric.columns:
     st.subheader(str(2) + "." + str(part2_no) + " Field Name: " + numeric_stats.col_name)
     # Add numeric_col_stats_table
     st.write(numeric_col_stats_table)
+    # bar chart showing the number of occurrence for each value
+    st.subheader("Histogram")
+    hist = numeric_stats.get_histogram
+    st.hist_chart(hist)
+    # frequencies and percentage for each value
+    st.subheader("Most Frequent Values")
+    frequency = numeric_stats.get_frequent()
+    st.write(frequency)
+
+st.header('Information on numeric columns')
+# provide an overview on the numeric columns
+numeric = upload.get_numeric_columns()
+st.write("Numeric columns are:", numeric.head())
+
+# Numeric columns
+part2_no = 0
+for col in numeric.columns:
+    part2_no = part2_no + 1
+    numeric_stats = NumericColumn(col, df)
+    numeric_col_stats_table = numeric_stats.construct_table()
+    # Display name of column as subtitle
+    st.subheader(str(2) + "." + str(part2_no) + " Field Name: " + numeric_stats.col_name)
+    # Add numeric_col_stats_table
+    st.write(numeric_col_stats_table)
     # histogram showing the number of occurrence for each value
     st.subheader("Histogram")
     num_hist = numeric_stats.get_histogram()
@@ -115,6 +139,7 @@ for col in numeric.columns:
     st.subheader("Most Frequent Values")
     frequency = numeric_stats.get_frequent()
     st.write(frequency)
+
 
 
 ######################################################
@@ -156,5 +181,13 @@ for col in dates_cols:
     part4_no = part4_no + 1
     datetime = DateColumn(col,dates[col])
     st.subheader(str(4) + "." + str(part4_no) + " Field Name: " + col)
+    #Data table
     date_col_stats_table = datetime.construct_table()
     st.write(date_col_stats_table)
+    st.subheader('Barchart')
+    barchart_data = datetime.get_barchart()
+    st.bar_chart(barchart_data)
+    st.subheader('Most Frequent Values')
+    frequent = datetime.get_frequent()
+    st.write(frequent)
+    
