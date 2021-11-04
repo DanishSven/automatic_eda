@@ -90,13 +90,16 @@ class DateColumn:
     """
     Return the generated bar chart for selected column
     """
-    return None
+    barchart = self.series.value_counts().T
+    return barchart
 
   def get_frequent(self):
     """
     Return the Pandas dataframe containing the occurrences and percentage of the top 20 most frequent values
     """
-    return None
+    frequency = self.series.value_counts().reset_index()
+    frequency.columns = ['value', 'occurrence']
+    return frequency.head(20)
 
   def construct_table(self):
         no_unique_values = self.get_unique()
