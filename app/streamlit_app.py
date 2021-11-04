@@ -32,13 +32,16 @@ except:
 
 # Get Datetime columns - Needs to be split out first for other sections
 date_cols = st.multiselect("Which columns in the .csv are date/time format?", df.columns, None)
-dates = df[df.columns.intersection(date_cols)] 
-# try inserting a try/except for pd.Datetime on the columns they select
-st.write(dates)
+#dates = df[df.columns.intersection(date_cols)] 
+#st.write(dates)
 
 # Init Class Dataset with 3 input:
 upload = Dataset("upload", df, date_cols)
-dates = upload.get_date_columns()
+try:
+    dates = upload.get_date_columns()
+except:
+    st.error("A column you have chosen can't be converted to datetime. Please check which columns you are adding and try again.")
+    st.stop()
 #st.write("Date-time column changed to Date-time data type:", dates)
 
 ######################################################
@@ -114,3 +117,5 @@ for col in dates_cols:
     part4_no = part4_no + 1
     datetime = DateColumn(col,dates[col])
     st.subheader(str(4) + "." + str(part4_no) + " Field Name: " + col)
+    date_col_stats_table = datetime.construct_table()
+    st.write(date_col_stats_table)
