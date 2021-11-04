@@ -1,9 +1,7 @@
 # To be filled by students
-import streamlit as st
+import matplotlib.pyplot as plt
 from dataclasses import dataclass
 import pandas as pd
-
-
 
 @dataclass
 class NumericColumn:
@@ -11,12 +9,12 @@ class NumericColumn:
   # series: pd.Series
   df: pd.DataFrame
 
-  def get_name(self):
-    """
-    Return name of selected column
-    """
-    name = self.name
-    return name
+  # def get_name(self):
+  #   """
+  #   Return name of selected column
+  #   """
+  #   name = self.name
+  #   return name
 
   def get_unique(self):
     """
@@ -36,7 +34,7 @@ class NumericColumn:
     """
     Return number of occurrence of 0 value for selected column
     """
-    zero_values = self.df.isin([0]).sum(axis=0)
+    zero_values = self.df[self.col_name].isin([0]).sum(axis=0)
     return zero_values
 
   def get_negatives(self):
@@ -85,7 +83,10 @@ class NumericColumn:
     """
     Return the generated histogram for selected column
     """
-    hist = self.df.hist(column=[self.col_name])
+    fig, ax = plt.subplots()
+    ax.hist(self.df[self.col_name], bins=20)
+    return fig
+
 
   def get_frequent(self):
     """
@@ -97,7 +98,7 @@ class NumericColumn:
     frequency['percentage'] = frequency['occurrence']/total_rows
     return frequency.head(20)
 
-def construct_table(self):
+  def construct_table(self):
     unique_values = self.get_unique()
     missing_values = self.get_missing()
     zero_values = self.get_zeros()
@@ -109,16 +110,16 @@ def construct_table(self):
     med_value = self.get_median()
 
     table = {
-        'number of unique values': [unique_values],
-        'number of missing values': [missing_values],
-        'number of rows with zero values': [zero_values],
-        'number of rows with negative values': [negative_values],
-        'Average': [average],
-        'Standard Deviation': [std_value],
-        'Minimum': [min_value],
-        'Maximum': [max_value],
-        'Median': [med_value]
-        }
+      'number of unique values': [unique_values],
+      'number of missing values': [missing_values],
+      'number of rows with zero values': [zero_values],
+      'number of rows with negative values': [negative_values],
+      'Average': [average],
+      'Standard Deviation': [std_value],
+      'Minimum': [min_value],
+      'Maximum': [max_value],
+      'Median': [med_value]
+    }
     table = pd.DataFrame.from_dict(table).T
     table.columns = ['value']
     return table.astype(str)        
