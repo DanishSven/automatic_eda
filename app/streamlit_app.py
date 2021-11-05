@@ -161,9 +161,11 @@ for col in dates_cols:
     #Data table
     date_col_stats_table = datetime.construct_table()
     st.write(date_col_stats_table)
+    #Bar chart
     st.subheader('Barchart')
     barchart_data = datetime.get_barchart()
     st.bar_chart(barchart_data)
+    #Most Frequent
     st.subheader('Most Frequent Values')
     frequent = datetime.get_frequent()
     st.write(frequent)
